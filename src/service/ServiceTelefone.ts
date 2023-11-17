@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8080/telefone";
+const baseURL = "http://localhost:8082/telefone";
 
 export const buscarTelefonesPorContato = async (contatoId: number) => {
   const resposta = await axios.get(`${baseURL}/${contatoId}`);

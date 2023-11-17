@@ -19,6 +19,7 @@ public class Telefone {
 	private String numero;
 	
 	@ManyToOne
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JoinColumn(name = "id_contato")
     private Contato contato;
 

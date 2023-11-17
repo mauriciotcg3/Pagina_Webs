@@ -4,5 +4,5 @@ export default interface Contatos {
   idContato: number;
   nome: string;
   idade: number;
-  telefones?: Telefone[];
+  telefones?: string;
 }

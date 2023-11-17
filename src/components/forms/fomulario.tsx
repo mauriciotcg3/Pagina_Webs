@@ -16,24 +16,24 @@ const FormularioContatos: React.FC<FormProps> = ({ onSubmit, close }) => {
     idContato: 0,
     nome: '',
     idade: 0,
-    telefones: [],
+    telefones: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    if (name == "telefones"){
-      let t: string[]
-      t = value.split(',').map((numero) => numero.trim())
-      console.log(t)
-      for(let i = 0; i < t.length; i++){
-        telefone: {
-          numero: t[i]
-        }
-        telefones: {
-          t[i]
-        }
-      }
-    }
+    // if (name == "telefones"){
+    //   let t: string[]
+    //   t = value.split(',').map((numero) => numero.trim())
+    //   console.log(t)
+    //   for(let i = 0; i < t.length; i++){
+    //     telefone: {
+    //       numero: t[i]
+    //     }
+    //     telefones: {
+    //       t[i]
+    //     }
+    //   }
+    // }
     setContato({
       ...contato,
       [name]: name === 'idade' ? parseInt(value, 10) : value,
@@ -44,16 +44,13 @@ const FormularioContatos: React.FC<FormProps> = ({ onSubmit, close }) => {
     e.preventDefault();
   
     await cadastrar(contato);
-    onSubmit(contato);
-  
-    const telefonesDoContato = await buscarTelefonesPorContato(contato.idContato);
-    console.log("Telefones do Contato", telefonesDoContato);
+    // onSubmit(contato);
   
     setContato({
       idContato: 0,
       nome: "",
       idade: 0,
-      telefones: [],
+      telefones: "",
     });
   
     close();
@@ -97,7 +94,7 @@ const FormularioContatos: React.FC<FormProps> = ({ onSubmit, close }) => {
             type="text"
             id="telefones"
             name="telefones"
-            value={contato.telefones?.join(",")}
+            value={contato.telefones}
             onChange={handleInputChange}
           />
         </div>

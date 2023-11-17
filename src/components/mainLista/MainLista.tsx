@@ -19,8 +19,9 @@ export function MainLista() {
   };
 
   useEffect(() => {
-    buscarDados();
-  }, [controller]);
+    const buscar = buscarDados();
+    console.log(buscar);  
+  }, []);
 
   const filteredContatos = contatos.filter((contato) =>
     contato.nome.toLowerCase().includes(searchTerm.toLowerCase())

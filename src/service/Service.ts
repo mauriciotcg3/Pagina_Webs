@@ -1,6 +1,9 @@
 import axios from "axios";
+import Contatos from "../models/Contatos";
 
 const baseURL = "http://localhost:8080/contato";
+const baseTelefoneUrl = "http://localhost:8080/telefone";
+let idContato = 0
 
 export const buscar = async() => {
   const resposta = await axios.get(`${baseURL}`)
@@ -9,10 +12,23 @@ export const buscar = async() => {
   return data;
 }
 
-export const cadastrar = async(dados: Object) => {
-  console.log(dados)
+export const cadastrar = async(dados: Contatos ) => {
+  console.log("dados", dados)
+
+
+  const dataContato = {
+    nome: dados.nome,
+    idade: dados.idade,
+  }
+  console.log("dataContato", dataContato)
+  const dataTelefone = {
+    numero: dados.telefones
+  }
+  console.log("dataTelefone", dataTelefone)
   try {
-    const resposta = await axios.post(`${baseURL}`, dados)
+    await axios.post(`${baseURL}`, dataContato)
+
+    await axios.post(`${baseTelefoneUrl}`, dataTelefone)
   } catch (error) {
     throw error
   }

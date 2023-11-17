@@ -42,7 +42,7 @@ export function CardContatos({ post }: ContatosProps) {
           <div className='flex bg-gray-800 justify-between p-4 rounded-lg items-center shadow-lg'>
             <div className="flex w-1/6">Nome: {post.nome}</div>
             <div className="flex w-1/12">Idade: {post.idade}</div>
-            <div className="flex w-1/4">Telefone: {post.telefones?.join(', ')}</div>
+            <div className="flex w-1/4">Telefone: {post.telefones} </div>
             <div className='acoes'>
               <button className='bg-slate-700 mx-1 p-2 rounded hover:bg-blue-500'><AiFillEdit/></button>
               <button className='bg-slate-700 mx-1 p-2 rounded hover:bg-red-500'
